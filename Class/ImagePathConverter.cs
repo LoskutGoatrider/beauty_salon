@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
@@ -36,7 +37,16 @@ namespace beauty_salon.Class
 
                 private BitmapImage GetDefaultImage()
                 {
-                        return new BitmapImage(new Uri("pack://application:,,,/Resources/default-service.png"));
+                        try
+                        {
+                                return new BitmapImage(new Uri("pack://application:,,,/Resources/default-service.png"));
+                        }
+                        catch (IOException ex)
+                        {
+                                MessageBox.Show(ex.ToString());
+                        }
+
+                        return new BitmapImage();
                 }
         }
 }

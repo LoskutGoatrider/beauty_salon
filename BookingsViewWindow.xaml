@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:beauty_salon"
         mc:Ignorable="d"
         Title="Просмотр записей" Height="450" Width="800">
+
     <Grid>
         <DataGrid x:Name="dgBookings" AutoGenerateColumns="False">
             <DataGrid.Columns>

@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Панель администратора -->
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" 
+        <StackPanel x:Name="contextMenu"  Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" 
                     Visibility="{Binding IsAdminMode, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Button x:Name="btnAddService" Content="Добавить услугу" Click="BtnAddService_Click" Width="120"/>
             <Button x:Name="btnViewBookings" Content="Просмотр записей" Click="BtnViewBookings_Click" Width="120" Margin="5,0,0,0"/>

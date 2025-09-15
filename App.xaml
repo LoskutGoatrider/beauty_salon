@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:beauty_salon"
+             xmlns:local1="clr-namespace:beauty_salon.Class"
              StartupUri="MainWindow.xaml">
 
     <Application.Resources>
@@ -10,7 +11,8 @@
         <SolidColorBrush x:Key="AccentBrush" Color="#FFFF4A6D"/>
 
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-        <local:ImagePathConverter x:Key="ImagePathConverter"/>
+        <!-- <local:ImagePathConverter x:Key="ImagePathConverter"/> -->
+        <local1:ImagePathConverter x:Key="ImagePathConverter"/>
 
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Tahoma"/>

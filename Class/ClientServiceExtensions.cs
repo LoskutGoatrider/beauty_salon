@@ -9,16 +9,16 @@ namespace beauty_salon.Class
 {
         public partial class ClientService
         {
-                public DateTime EndTime
+                /*public DateTime EndTime
                 {
-                        get
+                    get
+                    {
+                        using (var context = Helper.GetContext())
                         {
-                                using (var context = Helper.GetContext())
-                                {
-                                        var service = context.Service.Find(ServiceID);
-                                        return StartTime.AddSeconds(service.DurationInSeconds);
-                                }
+                                var service = context.Service.Find(ServiceID);
+                                return StartTime.AddSeconds(service.DurationInSeconds);
                         }
-                }
+                    }
+                }*/
         }
 }

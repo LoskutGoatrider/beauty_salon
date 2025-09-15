@@ -5,10 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:beauty_salon"
         mc:Ignorable="d"
-        Title="Редактирование услуги" Height="500" Width="400"
-        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
-    <Grid Margin="10">
+        Title="Редактирование услуги" 
+        Height="550" 
+        Width="450"
+        WindowStartupLocation="CenterOwner" 
+        ResizeMode="NoResize"
+        Background="{StaticResource PrimaryBackgroundBrush}">
+
+    <Grid Margin="15">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -21,44 +28,68 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- ID (только для чтения при редактировании) -->
-        <TextBlock Text="ID:" Grid.Row="0" Margin="0,0,0,5"/>
-        <TextBox x:Name="txtId" Grid.Row="1" IsEnabled="False" Margin="0,0,0,10"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <!-- Название -->
-        <TextBlock Text="Название:" Grid.Row="2" Margin="0,0,0,5"/>
-        <TextBox x:Name="txtTitle" Grid.Row="3" Margin="0,0,0,10"/>
+        <TextBlock Text="ID:" Grid.Row="0" Grid.Column="0" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <TextBox x:Name="txtId" Grid.Row="0" Grid.Column="1" 
+                 IsEnabled="False" Margin="0,0,0,10"/>
 
-        <!-- Стоимость -->
-        <TextBlock Text="Стоимость:" Grid.Row="4" Margin="0,0,0,5"/>
-        <TextBox x:Name="txtCost" Grid.Row="5" Margin="0,0,0,10"/>
+        <TextBlock Text="Название:" Grid.Row="1" Grid.Column="0" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <TextBox x:Name="txtTitle" Grid.Row="1" Grid.Column="1" 
+                 Margin="0,0,0,10"/>
 
-        <!-- Длительность (в минутах) -->
-        <TextBlock Text="Длительность (минуты):" Grid.Row="6" Margin="0,0,0,5"/>
-        <TextBox x:Name="txtDuration" Grid.Row="7" Margin="0,0,0,10"/>
+        <TextBlock Text="Стоимость:" Grid.Row="2" Grid.Column="0" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <TextBox x:Name="txtCost" Grid.Row="2" Grid.Column="1" 
+                 Margin="0,0,0,10"/>
 
-        <!-- Описание -->
-        <TextBlock Text="Описание:" Grid.Row="8" Margin="0,0,0,5"/>
-        <TextBox x:Name="txtDescription" Grid.Row="9" AcceptsReturn="True" 
-                 VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
+        <TextBlock Text="Длительность (минуты):" Grid.Row="3" Grid.Column="0" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <TextBox x:Name="txtDuration" Grid.Row="3" Grid.Column="1" 
+                 Margin="0,0,0,10"/>
 
-        <!-- Скидка -->
-        <TextBlock Text="Скидка (0.0 - 1.0):" Grid.Row="10" Margin="0,0,0,5"/>
-        <TextBox x:Name="txtDiscount" Grid.Row="11" Margin="0,0,0,10"/>
+        <TextBlock Text="Описание:" Grid.Row="4" Grid.Column="0" 
+                   VerticalAlignment="Top" Margin="0,0,10,5"/>
+        <TextBox x:Name="txtDescription" Grid.Row="4" Grid.Column="1" 
+                 AcceptsReturn="True" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto" 
+                 MinHeight="60" Margin="0,0,0,10"/>
 
-        <!-- Изображение -->
-        <TextBlock Text="Изображение:" Grid.Row="12" Margin="0,0,0,5"/>
-        <StackPanel Grid.Row="13" Orientation="Horizontal" Margin="0,0,0,10">
-            <Button x:Name="btnSelectImage" Content="Выбрать" Click="BtnSelectImage_Click" Margin="0,0,10,0"/>
+        <TextBlock Text="Скидка (0.0 - 1.0):" Grid.Row="5" Grid.Column="0" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <TextBox x:Name="txtDiscount" Grid.Row="5" Grid.Column="1" 
+                 Margin="0,0,0,10"/>
+
+        <TextBlock Text="Изображение:" Grid.Row="6" Grid.Column="0" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <StackPanel Grid.Row="6" Grid.Column="1" 
+                    Orientation="Horizontal" Margin="0,0,0,10">
+            <Button x:Name="btnSelectImage" Content="Выбрать" 
+                    Click="BtnSelectImage_Click" 
+                    Margin="0,0,10,0"
+                    Background="{StaticResource SecondaryBackgroundBrush}"/>
             <TextBlock x:Name="txtImagePath" VerticalAlignment="Center"/>
         </StackPanel>
-        <Image x:Name="imgPreview" Grid.Row="14" Height="100" Margin="0,0,0,10" 
+
+        <Image x:Name="imgPreview" Grid.Row="7" Grid.Column="1" 
+               Height="100" Margin="0,0,0,15" 
                HorizontalAlignment="Left" Stretch="Uniform"/>
 
-        <!-- Кнопки -->
-        <StackPanel Grid.Row="15" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="Сохранить" Click="BtnSave_Click" Width="80" Margin="0,0,10,0"/>
-            <Button Content="Отмена" Click="BtnCancel_Click" Width="80"/>
+        <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" HorizontalAlignment="Right" 
+                    Margin="0,15,0,0">
+            <Button Content="Сохранить" Click="BtnSave_Click" 
+                    Width="100" Margin="0,0,10,0"
+                    Background="{StaticResource AccentBrush}" 
+                    Foreground="White"/>
+            <Button Content="Отмена" Click="BtnCancel_Click" 
+                    Width="100"
+                    Background="{StaticResource SecondaryBackgroundBrush}"/>
         </StackPanel>
     </Grid>
 </Window>

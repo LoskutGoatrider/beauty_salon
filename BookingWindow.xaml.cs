@@ -62,9 +62,10 @@ namespace beauty_salon
                         {
                                 bool hasTimeConflict = context.ClientService.Any(cs =>
                                     cs.ServiceID == _service.ID &&
-                                    ((cs.StartTime >= startTime && cs.StartTime < endTime) ||
-                                     (cs.EndTime > startTime && cs.EndTime <= endTime) ||
-                                     (cs.StartTime <= startTime && cs.EndTime >= endTime)));
+                                    ((cs.StartTime >= startTime && cs.StartTime < endTime) // ||
+                                                                                           // (cs.EndTime > startTime && cs.EndTime <= endTime) ||
+                                                                                           // (cs.StartTime <= startTime && cs.EndTime >= endTime))
+                                        ));
 
                                 if (hasTimeConflict)
                                 {
@@ -74,9 +75,10 @@ namespace beauty_salon
 
                                 bool hasClientConflict = context.ClientService.Any(cs =>
                                     cs.ClientID == client.ID &&
-                                    ((cs.StartTime >= startTime && cs.StartTime < endTime) ||
-                                     (cs.EndTime > startTime && cs.EndTime <= endTime) ||
-                                     (cs.StartTime <= startTime && cs.EndTime >= endTime)));
+                                    ((cs.StartTime >= startTime && cs.StartTime < endTime) // ||
+                                    // (cs.EndTime > startTime && cs.EndTime <= endTime) ||
+                                   // (cs.StartTime <= startTime && cs.EndTime >= endTime)                                                       
+                                        ));
 
                                 if (hasClientConflict)
                                 {
@@ -88,8 +90,8 @@ namespace beauty_salon
                                 {
                                         ClientID = client.ID,
                                         ServiceID = _service.ID,
-                                        StartTime = startTime,
-                                        EndTime = endTime
+                                        StartTime = startTime // ,
+                                        // EndTime = endTime
                                 };
 
                                 context.ClientService.Add(clientService);
@@ -99,6 +101,11 @@ namespace beauty_salon
                                 DialogResult = true;
                                 Close();
                         }
+                }
+
+                private void BtnCancel_Click(object sender, RoutedEventArgs e)
+                {
+
                 }
         }
 }
